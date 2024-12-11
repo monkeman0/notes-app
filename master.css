@@ -1,4 +1,28 @@
-body {
-    background-color: #571a1a;
+body{
+    background-color: rgb(209, 79, 23);
     text-align: center;
+}
+
+#addNote{
+    background-color: rgb(245, 187, 0);
+    border-color: rgb(137, 105, 0);
+    border-width: 3px;
+    margin: 5px;
+    width: 33%;
+    height: 50px;
+    font-weight: 800;
+    font-size: 22px;
+    transition: all, ease 0.3s;
+}
+
+#addNote:hover {
+    background-color: rgb(249, 218, 116);
+    border-color: rgb(142, 125, 70);
+    border-width: 3px;
+    margin: 5px;
+    width: 35%;
+    height: 53px;
+    font-weight: 800;
+    font-size: 24px;
+    transition: all, ease 0.3s;
 }
