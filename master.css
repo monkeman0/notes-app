@@ -1,28 +1,103 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 body{
-    background-color: rgb(209, 79, 23);
+    background-color: rgb(30, 205, 182);
     text-align: center;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+#topSpacer{
+    position: relative;
+    top: 0;
+    height: 30px;
+}
+#opaqueCover{
+    transition: all ease-in-out 0.2s;
+}
+#back{
+    background-color: rgb(30, 205, 182);
+    position: absolute;
+    width: 69.795vw;
+    height: 94.5vw;
+    left: 14.64vw;
+    top: 8.4vw;
+}
+#backBorder{
+    background: rgb(199, 15, 52);
+    position: absolute;
+    border-radius: 10px;
+    width: 75vw;
+    height: 101.6vw;
+    left: 12.15vw;
+    top: 5vw;
 }
 
 #addNote{
     background-color: rgb(245, 187, 0);
     border-color: rgb(137, 105, 0);
-    border-width: 3px;
-    margin: 5px;
-    width: 33%;
-    height: 50px;
+    border-width: 4px;
+    margin: 18px;
+    width: 41%;
+    height: 75px;
     font-weight: 800;
-    font-size: 22px;
+    font-size: 30px;
     transition: all, ease 0.3s;
+    position: relative;
+    top: 0;
+    border-radius: 0px 0px 15px 15px;
 }
 
 #addNote:hover {
     background-color: rgb(249, 218, 116);
     border-color: rgb(142, 125, 70);
-    border-width: 3px;
-    margin: 5px;
-    width: 35%;
-    height: 53px;
+    margin: 18px;
+    width: 43%;
     font-weight: 800;
-    font-size: 24px;
+    font-size: 32px;
     transition: all, ease 0.3s;
 }
+
+.scrollable-table {
+    height: 500px;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+}
+
+.table{
+    font-family: fantasy;
+    border-collapse: collapse;
+    font-size: 2vw;
+    width: 70vw;
+    position: relative;
+    left: 13vw;
+    overflow-y: auto;
+}
+    .table th {
+    background-color:rgb(199, 15, 52);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    position: sticky;
+    top: 0vw;
+    height: 8vw;
+    font-size: 28px;
+    font-weight: bold;
+    }
+    .table th,
+    .table td {
+    padding: 1vw 0.8vw;
+    font-weight: normal;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    height: 10vw;
+    }
+    .table tr{
+        scroll-snap-align: start;
+    }
+    .table tbody tr:nth-of-type(even) {
+    background-color:rgb(104, 54, 54);
+    }
+    .table tbody tr:nth-of-type(odd) {
+    background-color:rgb(142, 94, 94);
+    }
