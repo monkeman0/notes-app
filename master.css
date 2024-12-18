@@ -3,97 +3,103 @@
 body{
     background-color: rgb(30, 205, 182);
     text-align: center;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
 }
 ::-webkit-scrollbar {
     display: none;
+}
+.coverItem{
+    position: absolute;
+    left: 9.5%;
+    width: 80%;
+    top: 5%;
+    height: 5%;
+    border-radius: 5px;
+    color: black;
+    font-size: x-large;
+    letter-spacing: 0.5px;
+    text-align: center;
+    border-color: rgb(13, 27, 29);
+    border-width: 5px;
+    background-color: rgb(224, 250, 255);
+}
+#noteDone{
+    position: absolute;
+    top: 89%;
+    font-weight: bold;
+    font-size: xx-large;
+    height: 7%;
+
 }
 #topSpacer{
     position: relative;
     top: 0;
     height: 30px;
+    width: 0;
 }
 #opaqueCover{
     transition: all ease-in-out 0.2s;
+    position: fixed;
 }
-#back{
-    background-color: rgb(30, 205, 182);
+#allHeight{
     position: absolute;
-    width: 69.795vw;
-    height: 94.5vw;
-    left: 14.64vw;
-    top: 8.4vw;
+    height: 100%;
 }
-#backBorder{
-    background: rgb(199, 15, 52);
-    position: absolute;
-    border-radius: 10px;
-    width: 75vw;
-    height: 101.6vw;
-    left: 12.15vw;
-    top: 5vw;
-}
-
 #addNote{
     background-color: rgb(245, 187, 0);
     border-color: rgb(137, 105, 0);
     border-width: 4px;
-    margin: 18px;
-    width: 41%;
-    height: 75px;
+    width: 68.5%;
+    left: 0.2vw;
     font-weight: 800;
-    font-size: 30px;
     transition: all, ease 0.3s;
     position: relative;
-    top: 0;
-    border-radius: 0px 0px 15px 15px;
+    border-radius: 0px 0px 5vw 5vw;
 }
-
-#addNote:hover {
-    background-color: rgb(249, 218, 116);
-    border-color: rgb(142, 125, 70);
-    margin: 18px;
-    width: 43%;
-    font-weight: 800;
-    font-size: 32px;
-    transition: all, ease 0.3s;
-}
-
 .scrollable-table {
-    height: 500px;
-    overflow-y: auto;
+    box-sizing: border-box;
+    overflow-y: scroll;
     scroll-snap-type: y mandatory;
+    width: 68.5%;
+    position: relative;
+    left: 16%;
 }
-
 .table{
     font-family: fantasy;
     border-collapse: collapse;
-    font-size: 2vw;
-    width: 70vw;
     position: relative;
-    left: 13vw;
+    left: 0;
+    width: 100%;
     overflow-y: auto;
 }
     .table th {
     background-color:rgb(199, 15, 52);
     color: rgb(0, 0, 0);
-    text-align: center;
     position: sticky;
-    top: 0vw;
-    height: 8vw;
-    font-size: 28px;
+    font-size: 8vw;
+    top: 0;
+    width: 100%;
     font-weight: bold;
-    }
-    .table th,
-    .table td {
-    padding: 1vw 0.8vw;
-    font-weight: normal;
     text-align: center;
-    font-size: 28px;
+    padding: 1vw 2vw;
+    letter-spacing: 1px;
+    height: 50px;
+    }
+
+    .table td {
+    padding: 1vw 2vw;
+    font-weight: normal;
+    font-size: 8vw;
     font-weight: bold;
-    height: 10vw;
+    height: 40px;
+    letter-spacing: 1px;
+    margin: 0;
     }
     .table tr{
-        scroll-snap-align: start;
+        scroll-snap-align: center;
+        text-align: left;
     }
     .table tbody tr:nth-of-type(even) {
     background-color:rgb(104, 54, 54);
