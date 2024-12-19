@@ -31,7 +31,6 @@ body{
     font-weight: bold;
     font-size: xx-large;
     height: 7%;
-
 }
 #topSpacer{
     position: relative;
@@ -65,6 +64,7 @@ body{
     width: 68.5%;
     position: relative;
     left: 16%;
+    background-color:rgb(93, 49, 45);
 }
 .table{
     font-family: fantasy;
@@ -74,36 +74,45 @@ body{
     width: 100%;
     overflow-y: auto;
 }
-    .table th {
-    background-color:rgb(199, 15, 52);
-    color: rgb(0, 0, 0);
-    position: sticky;
-    font-size: 8vw;
-    top: 0;
-    width: 100%;
-    font-weight: bold;
-    text-align: center;
-    padding: 1vw 2vw;
-    letter-spacing: 1px;
-    height: 50px;
-    }
-
-    .table td {
-    padding: 1vw 2vw;
-    font-weight: normal;
-    font-size: 8vw;
-    font-weight: bold;
-    height: 40px;
-    letter-spacing: 1px;
-    margin: 0;
-    }
-    .table tr{
-        scroll-snap-align: center;
-        text-align: left;
-    }
-    .table tbody tr:nth-of-type(even) {
-    background-color:rgb(104, 54, 54);
-    }
-    .table tbody tr:nth-of-type(odd) {
-    background-color:rgb(142, 94, 94);
-    }
+.table th {
+background-color:rgb(199, 15, 52);
+color: rgb(0, 0, 0);
+position: sticky;
+font-size: 8vw;
+top: 0;
+width: 100%;
+font-weight: bold;
+text-align: center;
+padding: 1vw 2vw;
+letter-spacing: 1px;
+height: 50px;
+}
+.table td {
+padding: 1vw 2vw;
+font-weight: normal;
+font-size: 8vw;
+font-weight: bold;
+height: 40px;
+letter-spacing: 1px;
+margin: 0;
+}
+.table td button{
+padding: 1vw 1vw;
+font-weight: normal;
+font-size: 7vw;
+font-weight: bold;
+height: 100%;
+width: 100%;
+background-color: rgba(104, 54, 54, 0);;
+border-width: 0;
+}
+.table tr{
+    scroll-snap-align: center;
+    text-align: left;
+}
+.table tbody tr:nth-of-type(even) {
+background-color:rgb(104, 54, 54);
+}
+.table tbody tr:nth-of-type(odd) {
+background-color:rgb(142, 94, 94);
+}

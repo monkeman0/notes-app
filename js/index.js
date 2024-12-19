@@ -54,6 +54,9 @@ function resetCover(start){
     }else{
         opqCover.top = Math.round(getStyle("body", 'height: ', 'height', 1, 'px') - (tableHeight * 0.15)) + "px";
     }
+    for(var i = 0; i < document.getElementsByClassName('coverItem').length; i++){
+        document.getElementsByClassName('coverItem')[i].style.display = "none";
+    }
 }
 
 function addBtnTransition(mode){
@@ -67,9 +70,11 @@ function addBtnTransition(mode){
         opqCover.top = "0";
         opqCover.left = "0";
         opqCover.borderRadius = "0px";
+        for(var i = 0; i < document.getElementsByClassName('coverItem').length; i++){
+            document.getElementsByClassName('coverItem')[i].style.display = "block";
+        }
     }else{
         document.getElementById("addNote").innerText = "Add Note"
-        
         resetCover();
     }
 }
@@ -77,4 +82,9 @@ function addBtnTransition(mode){
 resetCover(1);
 document.getElementById("addNote").onclick = function(){
     addBtnTransition(document.getElementById("addNote").innerText);
+}
+
+document.getElementById("noteDone").onclick = function(){
+    addBtnTransition(document.getElementById("addNote").innerText);
+    
 }
