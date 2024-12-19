@@ -11,18 +11,18 @@ if ("serviceWorker" in  navigator) {
 }   else{
 
 }
-
 //set function-dependent styles
 const addbtn = document.getElementById("addNote").style;
 const opqCover = document.getElementById("opaqueCover").style;
+const compBtn = document.getElementById("noteDone");
+let warningBottom;
 let tableHeight = Math.round((getStyle("allHeight", 'height: ', 'height', 1, 'px'))*0.65);
 document.getElementById("scrollable-table").style.height = tableHeight + "px";
 addbtn.height = Math.round(tableHeight * 0.15) + "px";
 addbtn.fontSize = Math.round(tableHeight * 0.07) + "px";
-addbtn.fontWeight = Math.round(tableHeight * 3);
+addbtn.fontWeight = Math.round(tableHeight * 3)
 document.getElementById("allHeight").style.height = "90%";
 document.getElementById("allHeight").style.top = "5%";
-
 //function declarations
 function getStyle(targetElement, attributeCol, attribute, trimed, trimVal){
     let string;
@@ -57,15 +57,16 @@ function resetCover(start){
     for(var i = 0; i < document.getElementsByClassName('coverItem').length; i++){
         document.getElementsByClassName('coverItem')[i].style.display = "none";
     }
+    warned();
 }
 
 function addBtnTransition(mode){
     if(mode == "Add Note"){
         document.getElementById("addNote").innerText = "Back To Home"
-        addbtn.top = Math.round(tableHeight * 0.2) + "px";
-        addbtn.height = Math.round(tableHeight * 0.2) + "px";
+        addbtn.top = Math.round(tableHeight * 0.1) + "px";
+        addbtn.height = Math.round(tableHeight * 0.20) + "px";
         opqCover.width = "100%";
-        opqCover.height = ((tableHeight * 0.2) + tableHeight + 31) + "px";
+        opqCover.height = ((tableHeight * 0.1) + tableHeight + 31) + "px";
         opqCover.background = "rgba(35, 42, 43, 0.85)";
         opqCover.top = "0";
         opqCover.left = "0";
@@ -78,6 +79,41 @@ function addBtnTransition(mode){
         resetCover();
     }
 }
+
+function addNote(title){
+    const newTr = document.createElement("tr");
+    newTr.id = randString();
+    document.getElementById("tbody").append(newTr);
+    const newTd = document.createElement("td");
+    newTd.id = randString();
+    document.getElementById(newTr.id).append(newTd);
+    const newBtn = document.createElement("button");
+    document.getElementById(newTd.id).append(newBtn);
+    newBtn.id = randString();
+    newBtn.type = "button";
+    newBtn.innerHTML = title;
+    document.getElementById("title").value = '';
+}
+
+function randString(){
+    return Math.floor(Math.random() * 9999999) + 1;
+}
+
+function warning(string){
+    compBtn.style.backgroundColor = "rgb(211, 15, 15)"
+    compBtn.style.borderColor = "rgb(69, 13, 13)"
+    compBtn.style.scale = "1.1"
+    compBtn.innerHTML = string
+    setTimeout(warned, 3000)
+}
+
+function warned(){
+    compBtn.style.backgroundColor = "rgb(224, 250, 255)"
+    compBtn.style.borderColor = "rgb(13, 27, 29)"
+    compBtn.style.scale = "1"
+    compBtn.innerHTML = "Complete Note"
+}
+
 //actual events and code
 resetCover(1);
 document.getElementById("addNote").onclick = function(){
@@ -85,6 +121,10 @@ document.getElementById("addNote").onclick = function(){
 }
 
 document.getElementById("noteDone").onclick = function(){
-    addBtnTransition(document.getElementById("addNote").innerText);
-    
+    if(document.getElementById("title").value != ''){
+        addBtnTransition(document.getElementById("addNote").innerText);
+        addNote(document.getElementById("title").value);
+    }else{
+        warning("Please input a title!");
+    }
 }
