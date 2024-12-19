@@ -114,7 +114,7 @@ font-weight: normal;
 font-size: 7vw;
 font-weight: bold;
 background-color: rgba(104, 54, 54, 0);;
-border-width: 1;
+border-width: 0px;
 overflow-wrap: anywhere;
 width: 100%;
 }

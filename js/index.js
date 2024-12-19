@@ -90,6 +90,8 @@ function addNote(title){
     const newBtn = document.createElement("button");
     document.getElementById(newTd.id).append(newBtn);
     newBtn.id = randString();
+    let btnId = newBtn.id
+    //YOU LAST LEFT OFF ADDING EVENT LISTENERS TO THE BUTTON(USE BOOKMARK FOR VIDEO!!!)
     newBtn.type = "button";
     newBtn.innerHTML = title;
     document.getElementById("title").value = '';
@@ -112,6 +114,10 @@ function warned(){
     compBtn.style.borderColor = "rgb(13, 27, 29)"
     compBtn.style.scale = "1"
     compBtn.innerHTML = "Complete Note"
+}
+
+function editNote(id){
+    addBtnTransition(document.getElementById("addNote").innerText);
 }
 
 //actual events and code
