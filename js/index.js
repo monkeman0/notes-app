@@ -15,7 +15,6 @@ if ("serviceWorker" in  navigator) {
 const addbtn = document.getElementById("addNote").style;
 const opqCover = document.getElementById("opaqueCover").style;
 const compBtn = document.getElementById("noteDone");
-let warningBottom;
 let tableHeight = Math.round((getStyle("allHeight", 'height: ', 'height', 1, 'px'))*0.65);
 document.getElementById("scrollable-table").style.height = tableHeight + "px";
 addbtn.height = Math.round(tableHeight * 0.15) + "px";
@@ -23,6 +22,8 @@ addbtn.fontSize = Math.round(tableHeight * 0.07) + "px";
 addbtn.fontWeight = Math.round(tableHeight * 3)
 document.getElementById("allHeight").style.height = "90%";
 document.getElementById("allHeight").style.top = "5%";
+//global variables
+let titles = [];
 //function declarations
 function getStyle(targetElement, attributeCol, attribute, trimed, trimVal){
     let string;
@@ -90,8 +91,6 @@ function addNote(title){
     const newBtn = document.createElement("button");
     document.getElementById(newTd.id).append(newBtn);
     newBtn.id = randString();
-    let btnId = newBtn.id
-    //YOU LAST LEFT OFF ADDING EVENT LISTENERS TO THE BUTTON(USE BOOKMARK FOR VIDEO!!!)
     newBtn.type = "button";
     newBtn.innerHTML = title;
     document.getElementById("title").value = '';
@@ -116,21 +115,37 @@ function warned(){
     compBtn.innerHTML = "Complete Note"
 }
 
-function editNote(id){
+function openNote(id){
     addBtnTransition(document.getElementById("addNote").innerText);
+    document.getElementById("title").value = titles[id-1];
 }
 
+function eventSetting(){
+    let currentBtn;
+    for(var i = 0; i < document.getElementsByClassName('notebtn').length; i++){
+    currentBtn = document.getElementsByClassName('notebtn')[i];
+    document.getElementById(currentBtn.id).removeEventListener("click", function(){ openNote(currentBtn.id); })
+    }
+    for(var i = 0; i < document.getElementsByClassName('notebtn').length; i++){
+    currentBtn = document.getElementsByClassName('notebtn')[i];
+    titles.push(currentBtn.innerHTML)
+    document.getElementById(currentBtn.id).addEventListener("click", function(){ openNote(currentBtn.id); })
+    }
+}
 //actual events and code
 resetCover(1);
 document.getElementById("addNote").onclick = function(){
     addBtnTransition(document.getElementById("addNote").innerText);
+    document.getElementById("title").value = '';
 }
 
 document.getElementById("noteDone").onclick = function(){
     if(document.getElementById("title").value != ''){
         addBtnTransition(document.getElementById("addNote").innerText);
         addNote(document.getElementById("title").value);
+        eventSetting();
     }else{
         warning("Please input a title!");
     }
 }
+eventSetting();
